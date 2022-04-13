@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="54" viewBox="0 0 54 54">
+  <defs>
+    <filter id="Rectangle_446" x="0" y="0" width="54" height="54" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_448" data-name="Rectangle 448" width="16" height="16" transform="translate(10 10)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Back_Button" data-name="Back Button" transform="translate(9 6)">
+    <g transform="matrix(1, 0, 0, 1, -9, -6)" filter="url(#Rectangle_446)">
+      <rect id="Rectangle_446-2" data-name="Rectangle 446" width="36" height="36" rx="18" transform="translate(9 6)" fill="#00b1a1"/>
+    </g>
+    <g id="Mask_Group_21" data-name="Mask Group 21" clip-path="url(#clip-path)">
+      <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M13.964,14.192,19.92,8.142a1.152,1.152,0,0,0,0-1.615,1.117,1.117,0,0,0-1.593,0l-6.749,6.854a1.155,1.155,0,0,0-.033,1.577l6.777,6.9a1.119,1.119,0,0,0,1.593,0,1.152,1.152,0,0,0,0-1.615Z" transform="translate(2.249 3.806)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

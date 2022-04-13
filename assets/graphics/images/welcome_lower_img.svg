@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="320" viewBox="0 0 375 320">
+  <g id="Lower_Shapes" data-name="Lower Shapes" transform="translate(0 -552)">
+    <path id="Rectangle_569" data-name="Rectangle 569" d="M60,0H375a0,0,0,0,1,0,0V260a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V60A60,60,0,0,1,60,0Z" transform="translate(0 612)" fill="#00b1a1"/>
+    <path id="Rectangle_571" data-name="Rectangle 571" d="M60,0H375a0,0,0,0,1,0,0V200a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V60A60,60,0,0,1,60,0Z" transform="translate(0 582)" fill="#00b1a1" opacity="0.5"/>
+    <path id="Rectangle_574" data-name="Rectangle 574" d="M60,0H375a0,0,0,0,1,0,0V200a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V60A60,60,0,0,1,60,0Z" transform="translate(0 552)" fill="#00b1a1" opacity="0.5"/>
+  </g>
+</svg>

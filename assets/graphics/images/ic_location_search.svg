@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="54" viewBox="0 0 54 54">
+  <defs>
+    <filter id="Path_1989" x="0" y="0" width="54" height="54" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Search" transform="translate(-265 1)">
+    <g transform="matrix(1, 0, 0, 1, 265, -1)" filter="url(#Path_1989)">
+      <path id="Path_1989-2" data-name="Path 1989" d="M18,0A18,18,0,1,1,0,18,18,18,0,0,1,18,0Z" transform="translate(9 6)" fill="#00b1a1"/>
+    </g>
+    <g id="magnifying-glass_2_" data-name="magnifying-glass (2)" transform="translate(273 4)">
+      <path id="Path_2117" data-name="Path 2117" d="M26.8,25.864l-3.847-3.847a6.737,6.737,0,1,0-.944.944L25.86,26.8a.666.666,0,0,0,.944-.94Zm-9.061-2.72a5.4,5.4,0,1,1,5.4-5.4A5.408,5.408,0,0,1,17.743,23.144Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>
