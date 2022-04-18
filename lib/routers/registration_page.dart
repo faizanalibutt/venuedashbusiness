@@ -151,46 +151,44 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   style: TextStyle(color: kWhite500Color, fontSize: 10),
                                 ),
                               ),
-                              Ink(
-                                width: size.width * .9,
-                                decoration: const BoxDecoration(
-                                  color: kLoationFiedlBgColor,
-                                  borderRadius: BorderRadius.all(Radius.circular(16)),
-                                ),
-                                child: InkWell(
-                                  borderRadius: const BorderRadius.all(Radius.circular(16)),
-                                  onTap: () {
-                                    Get.to(() => const LocationEditPage());
-                                  },
-                                  child: Row(
-                                    children: [
-                                      SizedBox(
-                                        child: Row(
-                                          children: [
-                                            Obx(
-                                              () => Flexible(
-                                                  child: Text(widget.textControllerGet.controllerTextValue.value,
-                                                      style: GoogleFonts.lato(
-                                                          textStyle: const TextStyle(
-                                                              color: kBlackHeadingColor,
-                                                              fontSize: 15,
-                                                              fontWeight: FontWeight.normal,
-                                                              overflow: TextOverflow.ellipsis)))),
-                                            ),
-                                          ],
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 20, top: 3),
+                                child: Container(
+                                  height: 50,
+                                  width: size.width * .85,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(width: 1, color: Colors.white),
+                                    borderRadius: const BorderRadius.all(Radius.circular(30)),
+                                  ),
+                                  child: InkWell(
+                                    borderRadius: const BorderRadius.all(Radius.circular(30)),
+                                    onTap: () {
+                                      Get.to(() => const LocationEditPage());
+                                    },
+                                    child: Row(
+                                      children: [
+                                        const SizedBox(width: 20),
+                                        Obx(
+                                          () => Flexible(
+                                            flex: 7,
+                                            fit: FlexFit.tight,
+                                              child: Text(widget.textControllerGet.controllerTextValue.value,
+                                                  style: GoogleFonts.lato(
+                                                      textStyle: const TextStyle(
+                                                          color: kWhite700Color,
+                                                          fontSize: 15,
+                                                          fontWeight: FontWeight.normal,
+                                                          overflow: TextOverflow.ellipsis)))),
                                         ),
-                                        width: size.width * .75,
-                                      ),
-                                      SizedBox(
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(top: 3),
-                                          child: Image.asset(
-                                            "assets/graphics/ic_edit_location_home_icon.png",
-                                            width: size.width * .15,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                        Flexible(
+                                          flex: 2,
+                                          fit: FlexFit.tight,
+                                          child: Align(
+                                            alignment: Alignment.center,
+                                            child: Image.asset("assets/graphics/ic_edit_text_white_icon.png")),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -203,7 +201,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 ),
                               ),
                               RoundedInputField(
-                                textInputType: TextInputType.emailAddress,
+                                textInputType: TextInputType.phone,
                                 onChanged: (value) {},
                                 focus: false,
                               ),

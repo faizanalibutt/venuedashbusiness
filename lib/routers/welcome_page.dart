@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venuedashbusiness/controller/text_controller.dart';
 import 'package:venuedashbusiness/routers/login_page.dart';
 import 'package:venuedashbusiness/routers/registration_page.dart';
 import 'package:venuedashbusiness/utils/constants.dart';
@@ -14,6 +15,7 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(TextController());
     Size size = MediaQuery.of(context).size;
     // This size provide us total height and width of our screen
     return Material(
