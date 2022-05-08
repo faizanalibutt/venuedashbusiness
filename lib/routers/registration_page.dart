@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:venuedashbusiness/controller/text_controller.dart';
+import 'package:venuedashbusiness/routers/home_page.dart';
 import 'package:venuedashbusiness/routers/location_edit_page.dart';
 import 'package:venuedashbusiness/routers/login_page.dart';
 import 'package:venuedashbusiness/routers/privacy_policy_page.dart';
@@ -24,9 +25,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
   bool isChecked = false;
   bool _isPwdVisible = true;
   bool _isPwdVisible2 = true;
+  String? dropdownValue;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    var businessTypeList = ['Global', 'Local', 'Non-Profit', 'Outsource'];
     return Material(
         color: Colors.white,
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -79,7 +82,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 width: 280,
                                 decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
-                                    borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                                    borderRadius: const BorderRadius.all(Radius.circular(16.0)),
                                     border: Border.all(width: 1, color: Colors.white)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(75),
@@ -87,10 +90,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 ),
                               ),
                               const SizedBox(height: 5),
-                              Text("Upoload a Cover Picture", // Change Picture ID
-                                  style: GoogleFonts.lato(
-                                    textStyle: const TextStyle(color: Colors.white, fontSize: 10),
-                                  )),
+                              Text(
+                                "Upoload a Cover Picture", // Change Picture ID
+                                style: GoogleFonts.lato(
+                                  textStyle: const TextStyle(color: Colors.white, fontSize: 10),
+                                ),
+                              ),
                               Container(
                                 padding: const EdgeInsets.only(left: 50, top: 20),
                                 alignment: Alignment.topLeft,
@@ -99,10 +104,46 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   style: TextStyle(color: kWhite500Color, fontSize: 10),
                                 ),
                               ),
-                              RoundedInputField(
-                                textInputType: TextInputType.name,
-                                onChanged: (value) {},
-                                focus: true,
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 20.0, top: 3.0),
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                                  width: size.width * .85,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+                                      border: Border.all(width: 1, color: Colors.white)),
+                                  child: DropdownButton<String>(
+                                    value: dropdownValue,
+                                    icon: Image.asset("assets/graphics/ic_drop_down_white_icon.png"),
+                                    elevation: 16,
+                                    isExpanded: true,
+                                    dropdownColor: kPrimaryColor,
+                                    style: GoogleFonts.lato(
+                                        textStyle: const TextStyle(
+                                            color: kWhite700Color, fontSize: 15, fontWeight: FontWeight.normal, overflow: TextOverflow.ellipsis)),
+                                    underline: Container(
+                                      height: 1,
+                                      color: Colors.transparent,
+                                    ),
+                                    hint: Text("Select a type",
+                                        style: GoogleFonts.lato(
+                                          textStyle: const TextStyle(
+                                              color: kWhite500Color, fontSize: 15, fontWeight: FontWeight.normal, overflow: TextOverflow.ellipsis),
+                                        )),
+                                    onChanged: (String? newValue) {
+                                      setState(() {
+                                        dropdownValue = newValue!;
+                                      });
+                                    },
+                                    items: businessTypeList.map<DropdownMenuItem<String>>((String value) {
+                                      return DropdownMenuItem<String>(
+                                        value: value,
+                                        child: Text(value),
+                                      );
+                                    }).toList(),
+                                  ),
+                                ),
                               ),
                               Container(
                                 padding: const EdgeInsets.only(left: 50),
@@ -170,8 +211,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                         const SizedBox(width: 20),
                                         Obx(
                                           () => Flexible(
-                                            flex: 7,
-                                            fit: FlexFit.tight,
+                                              flex: 7,
+                                              fit: FlexFit.tight,
                                               child: Text(widget.textControllerGet.controllerTextValue.value,
                                                   style: GoogleFonts.lato(
                                                       textStyle: const TextStyle(
@@ -183,9 +224,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                         Flexible(
                                           flex: 2,
                                           fit: FlexFit.tight,
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            child: Image.asset("assets/graphics/ic_edit_text_white_icon.png")),
+                                          child:
+                                              Align(alignment: Alignment.center, child: Image.asset("assets/graphics/ic_edit_text_white_icon.png")),
                                         )
                                       ],
                                     ),
@@ -200,10 +240,55 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   style: TextStyle(color: kWhite500Color, fontSize: 10),
                                 ),
                               ),
-                              RoundedInputField(
-                                textInputType: TextInputType.phone,
-                                onChanged: (value) {},
-                                focus: false,
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 20.0, top: 3.0),
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                                  width: size.width * .85,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+                                      border: Border.all(width: 1, color: Colors.white)),
+                                  child: DropdownButton<String>(
+                                    isExpanded: true,
+                                    iconSize: 0.0,
+                                    value: dropdownValue,
+                                    dropdownColor: kPrimaryColor,
+                                    underline: const SizedBox(),
+                                    hint: Text("Enter your phone number",
+                                        style: GoogleFonts.lato(
+                                          textStyle: const TextStyle(
+                                              color: kWhite700Color, fontSize: 15, fontWeight: FontWeight.normal, overflow: TextOverflow.ellipsis),
+                                        )),
+                                    style: GoogleFonts.lato(
+                                        textStyle: const TextStyle(
+                                            color: kWhite700Color, fontSize: 15, fontWeight: FontWeight.normal, overflow: TextOverflow.ellipsis)),
+                                    onChanged: (String? newValue) {
+                                      setState(() {
+                                        dropdownValue = newValue!;
+                                      });
+                                    },
+                                    items: businessTypeList.map<DropdownMenuItem<String>>((String value) {
+                                      return DropdownMenuItem<String>(
+                                        value: value,
+                                        child: Row(
+                                          children: [
+                                            Text("(+1)",
+                                                style: GoogleFonts.lato(
+                                                  textStyle: const TextStyle(
+                                                      color: kWhite700Color,
+                                                      fontSize: 15,
+                                                      fontWeight: FontWeight.normal,
+                                                      overflow: TextOverflow.ellipsis),
+                                                )),
+                                            const SizedBox(width: 10),
+                                            Image.asset("assets/graphics/ic_close_white_icon.png"),
+                                          ],
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
+                                ),
                               ),
                               Container(
                                 padding: const EdgeInsets.only(left: 50),
@@ -289,7 +374,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               ),
                               RoundedButtonLong(
                                 text: "Register",
-                                press: () => Get.back(), //to(() => HomePage()),
+                                press: () => Get.to(() => HomePage()),
                                 imgName: 'assets/graphics/sign_up_register_icon.png',
                                 color: Colors.white,
                                 textColor: kPrimaryColor,

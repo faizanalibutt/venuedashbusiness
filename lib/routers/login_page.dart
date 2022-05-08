@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venuedashbusiness/routers/forget_email_page.dart';
+import 'package:venuedashbusiness/routers/forget_pwd_page.dart';
+import 'package:venuedashbusiness/routers/home_page.dart';
 import 'package:venuedashbusiness/routers/registration_page.dart';
 import 'package:venuedashbusiness/utils/constants.dart';
 import 'package:venuedashbusiness/widgets/outlined_border_button_long.dart';
@@ -129,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                                     alignment: Alignment.centerRight,
                                     padding: const EdgeInsets.only(right: 5.0),
                                     child: TextButton(
-                                        onPressed: () => Get.back(),
+                                        onPressed: () => Get.to(() => const ForgetPwdPage()),
                                         child: const Text(
                                           "Forgot Password?",
                                           style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w300),
@@ -142,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               RoundedButtonLong(
                                 text: "Login",
-                                press: () => Get.back(),
+                                press: () => Get.to(() => HomePage()),
                                 imgName: 'assets/graphics/welcome_login_icon.png',
                                 color: Colors.white,
                                 textColor: kPrimaryColor,
@@ -151,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                                 padding: const EdgeInsets.only(top: 30),
                                 child: TapRichText(
                                   tapEmailResponse: () {
-                                    Get.back(); //to(() => const ForgetEmailPage());
+                                    Get.to(() => const ForgetEmailPage());
                                   },
                                 ),
                               ),
