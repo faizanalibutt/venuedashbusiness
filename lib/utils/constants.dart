@@ -12,6 +12,7 @@ const kBlackDescColor = Color(0x6627282D);
 const kLoationFiedlBgColor = Color(0xFFF5F5F5);
 const kBlackColor30 = Color(0x4D27282D);
 const kRatingFullColor = Color(0xFFFFC107);
+const kBottomBarUnSelectedColor = Color(0xFFC8C9CA);
 
 // All hex value from 100% to 0% alpha:
 

@@ -68,7 +68,7 @@ class AcceptedOrdersPage extends StatelessWidget {
                           children: [
                             Ink(
                               width: size.width * .9,
-                              height: 140,
+                              height: 115,
                               padding: EdgeInsets.zero,
                               decoration: const BoxDecoration(
                                 color: kLoationFiedlBgColor,
@@ -76,117 +76,103 @@ class AcceptedOrdersPage extends StatelessWidget {
                               ),
                               child: InkWell(
                                 borderRadius: const BorderRadius.all(Radius.circular(16)),
-                                onTap: () => Get.back(),//to(() => const OrderDeliveryPage()),
+                                onTap: () => Get.back(), //to(() => const OrderDeliveryPage()),
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      Flexible(
-                                          flex: 7,
-                                          child: Row(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Expanded(
-                                                flex: 4,
-                                                child: ClipRRect(
-                                                  borderRadius: BorderRadius.circular(8),
-                                                  child: Image.asset("assets/graphics/home_venue_order_img.png"),
-                                                ),
-                                              ),
-                                              Expanded(
-                                                flex: 6,
-                                                child: Padding(
-                                                  padding: const EdgeInsets.only(left: 10),
-                                                  child: Column(
-                                                    mainAxisAlignment: MainAxisAlignment.start,
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                    children: [
-                                                      Text(
-                                                        "Voluptas Ut Aut Shop",
+                                      Row(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Expanded(
+                                                      child: Text(
+                                                        "6 items",
                                                         style: GoogleFonts.lato(
                                                           textStyle: const TextStyle(
                                                               color: kBlackHeadingColor,
-                                                              fontSize: 15,
+                                                              fontSize: 14,
                                                               fontWeight: FontWeight.bold,
                                                               overflow: TextOverflow.ellipsis),
                                                         ),
                                                       ),
-                                                      const SizedBox(height: 5),
-                                                      Row(
-                                                        children: [
-                                                          Image.asset("assets/graphics/ic_distacnce_green_icon.png"),
-                                                          const SizedBox(width: 5),
-                                                          Text(
-                                                            "17.2 km away.",
-                                                            style: GoogleFonts.lato(
-                                                              textStyle: const TextStyle(
-                                                                  color: kBlackSubHeadingColor, fontSize: 10, overflow: TextOverflow.ellipsis),
-                                                            ),
-                                                          ),
-                                                        ],
+                                                    ),
+                                                    Text(
+                                                      "\$9.52",
+                                                      style: GoogleFonts.lato(
+                                                        textStyle: const TextStyle(
+                                                            color: kBlackHeadingColor,
+                                                            fontSize: 14,
+                                                            fontWeight: FontWeight.bold,
+                                                            overflow: TextOverflow.ellipsis),
                                                       ),
-                                                      const SizedBox(height: 5),
-                                                      Text(
-                                                        "Time Left: 43:17",
-                                                        style: GoogleFonts.lato(
-                                                          textStyle: const TextStyle(
-                                                              color: kBlackSubHeadingColor, fontSize: 10, overflow: TextOverflow.ellipsis),
-                                                        ),
-                                                      ),
-                                                      const SizedBox(height: 5),
-                                                      Text(
-                                                        "3 Items   \$9.52",
-                                                        style: GoogleFonts.lato(
-                                                          textStyle: const TextStyle(
-                                                              color: kBlackSubHeadingColor, fontSize: 10, overflow: TextOverflow.ellipsis),
-                                                        ),
-                                                      ),
-                                                      const SizedBox(height: 5),
-                                                      Text(
-                                                        "March 22, 2021 - 09:23 PM",
-                                                        style: GoogleFonts.lato(
-                                                          textStyle: const TextStyle(
-                                                              color: kBlackSubHeadingColor, fontSize: 10, overflow: TextOverflow.ellipsis),
-                                                        ),
-                                                      ),
-                                                      const SizedBox(height: 5),
-                                                    ],
+                                                    ),
+                                                  ],
+                                                ),
+                                                const SizedBox(height: 5),
+                                                Text(
+                                                  "x2 Quo Qui, x1 Molestias Illo, x2 Etasa, 4 more items...",
+                                                  style: GoogleFonts.lato(
+                                                    textStyle:
+                                                        const TextStyle(color: kBlackSubHeadingColor, fontSize: 10, overflow: TextOverflow.ellipsis),
                                                   ),
                                                 ),
-                                              )
-                                            ],
-                                          )),
-                                      Row(
-                                        children: [
-                                          Flexible(
-                                            flex: 2,
-                                            fit: FlexFit.tight,
-                                            child: Text(
-                                              "Your Status:",
-                                              style: GoogleFonts.lato(
-                                                textStyle: const TextStyle(color: kBlackSubHeadingColor, fontSize: 10, overflow: TextOverflow.ellipsis),
+                                                const SizedBox(height: 5),
+                                                Text(
+                                                  "March 22, 2021 - 09:23 PM",
+                                                  style: GoogleFonts.lato(
+                                                    textStyle:
+                                                        const TextStyle(color: kBlackSubHeadingColor, fontSize: 10, overflow: TextOverflow.ellipsis),
+                                                  ),
+                                                ),
+                                                const SizedBox(height: 5),
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      Container(
+                                        height: 35,
+                                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.rectangle,
+                                            color: Colors.white,
+                                            borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                                            border: Border.all(width: 1, color: kPrimaryColor)),
+                                        child: Row(
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                "Time Left:",
+                                                style: GoogleFonts.lato(
+                                                  textStyle:
+                                                      const TextStyle(color: kBlackHeadingColor, fontSize: 14, overflow: TextOverflow.ellipsis),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          Flexible(
-                                            flex: 8,
-                                            fit: FlexFit.tight,
-                                            child: Ink(
+                                            Ink(
                                               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                                               decoration: const BoxDecoration(
                                                 color: kPrimaryColor,
                                                 borderRadius: BorderRadius.all(Radius.circular(18)),
                                               ),
                                               child: Text(
-                                                "not updated yet",
+                                                "00:09:44",
                                                 style: GoogleFonts.lato(
-                                                  textStyle: const TextStyle(color: kBlackHeadingColor, fontSize: 10, overflow: TextOverflow.ellipsis),
+                                                  textStyle:
+                                                      const TextStyle(color: kBlackHeadingColor, fontSize: 14, overflow: TextOverflow.ellipsis),
                                                 ),
                                               ),
-                                            ),
-                                          )
-                                        ],
+                                            )
+                                          ],
+                                        ),
                                       )
                                     ],
                                   ),
