@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venuedashbusiness/routers/add_product_page.dart';
 import 'package:venuedashbusiness/routers/business_profile_page.dart';
 import 'package:venuedashbusiness/routers/feedback_page.dart';
 import 'package:venuedashbusiness/routers/help_page.dart';
@@ -9,6 +10,7 @@ import 'package:venuedashbusiness/routers/login_page.dart';
 import 'package:venuedashbusiness/routers/manage_products_main_page.dart';
 import 'package:venuedashbusiness/routers/order_history_page.dart';
 import 'package:venuedashbusiness/routers/privacy_policy_page.dart';
+import 'package:venuedashbusiness/routers/profile_edit_page.dart';
 import 'package:venuedashbusiness/routers/settings_page.dart';
 import 'package:venuedashbusiness/utils/constants.dart';
 import 'package:venuedashbusiness/widgets/custom_action_dialog.dart';
@@ -43,17 +45,18 @@ class _BottomBarPageState extends State<BottomBarPage> {
         shadowColor: Colors.transparent,
         titleSpacing: 5,
         title: Text(
-            (_selectedIndex == 0)
-                ? "Orders Request"
-                : (_selectedIndex == 1)
-                    ? "Manage Products"
-                    : "Business Profile",
-            style: GoogleFonts.lato(
-                textStyle: const TextStyle(
-              color: kBlackHeadingColor,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ))),
+          (_selectedIndex == 0)
+              ? "Orders Request"
+              : (_selectedIndex == 1)
+                  ? "Manage Products"
+                  : "Business Profile",
+          style: GoogleFonts.lato(
+              textStyle: const TextStyle(
+            color: kBlackHeadingColor,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          )),
+        ),
         leadingWidth: 70,
         leading: InkWell(
           onTap: () {
@@ -63,22 +66,44 @@ class _BottomBarPageState extends State<BottomBarPage> {
             "assets/graphics/ic_home_drawer_button.png",
           ),
         ),
-        actions: [
-          InkWell(
-            onTap: () {},
-            child: Image.asset(
-              "assets/graphics/ic_notification_icon.png",
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => const OrderHistoryPage());
-            },
-            child: Image.asset(
-              "assets/graphics/ic_history_green_icon.png",
-            ),
-          ),
-        ],
+        actions: (_selectedIndex == 0)
+            ? [
+                InkWell(
+                  onTap: () {},
+                  child: Image.asset(
+                    "assets/graphics/ic_notification_icon.png",
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Get.to(() => const OrderHistoryPage());
+                  },
+                  child: Image.asset(
+                    "assets/graphics/ic_history_green_icon.png",
+                  ),
+                ),
+              ]
+            : (_selectedIndex == 1)
+                ? [
+                    InkWell(
+                      onTap: () {
+                        Get.to(() => const AddProductPage());
+                      },
+                      child: Image.asset(
+                        "assets/graphics/ic_add_circle_green_icon.png",
+                      ),
+                    ),
+                  ]
+                : [
+                    InkWell(
+                      onTap: () {
+                        Get.to(() => ProfileEditPage());
+                      },
+                      child: Image.asset(
+                        "assets/graphics/ic_edit_icon.png",
+                      ),
+                    ),
+                  ],
       ),
       body: IndexedStack(
         index: _selectedIndex,

@@ -154,7 +154,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 ),
                               ),
                               RoundedInputField(
-                                textInputType: TextInputType.emailAddress,
+                                textInputType: TextInputType.text,
                                 onChanged: (value) {},
                                 focus: false,
                               ),
@@ -167,7 +167,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 ),
                               ),
                               RoundedInputField(
-                                textInputType: TextInputType.emailAddress,
+                                textInputType: TextInputType.name,
                                 onChanged: (value) {},
                                 focus: false,
                               ),
@@ -180,7 +180,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 ),
                               ),
                               RoundedInputField(
-                                textInputType: TextInputType.emailAddress,
+                                textInputType: TextInputType.name,
                                 onChanged: (value) {},
                                 focus: false,
                               ),

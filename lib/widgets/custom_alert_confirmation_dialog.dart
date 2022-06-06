@@ -22,7 +22,7 @@ class CustomAlertConfirmationDialog extends StatelessWidget {
       this.descText = "Desc will be here.",
       this.titleText = "Title Space",
       this.dialogHeight = 270,
-      this.icon = "assets/graphics/images/forget_circle_img.svg",
+      this.icon = "assets/graphics/images/img_okay_fill_icon.svg",
       this.isSvg = false})
       : super(key: key);
 
