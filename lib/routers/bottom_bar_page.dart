@@ -12,6 +12,7 @@ import 'package:venuedashbusiness/routers/order_history_page.dart';
 import 'package:venuedashbusiness/routers/privacy_policy_page.dart';
 import 'package:venuedashbusiness/routers/profile_edit_page.dart';
 import 'package:venuedashbusiness/routers/settings_page.dart';
+import 'package:venuedashbusiness/routers/subscription_page.dart';
 import 'package:venuedashbusiness/utils/constants.dart';
 import 'package:venuedashbusiness/widgets/custom_action_dialog.dart';
 
@@ -179,6 +180,35 @@ class _BottomBarPageState extends State<BottomBarPage> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
+                        InkWell(
+                            onTap: () => {widget._key.currentState!.openEndDrawer(), Get.to(() => const SubscriptionPage())},
+                            child: Padding(
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/graphics/ic_subscription_drawer_black_icon.png",
+                                  ),
+                                  const SizedBox(
+                                    width: 12,
+                                  ),
+                                  Text(
+                                    "Subscription",
+                                    style: GoogleFonts.lato(
+                                        textStyle: const TextStyle(
+                                      color: kBlackHeadingColor,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ],
+                              ),
+                              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                            )),
+                        const SizedBox(
+                          height: 5,
+                        ),
                         InkWell(
                             onTap: () => {widget._key.currentState!.openEndDrawer(), Get.to(() => const HelpPage())},
                             child: Padding(

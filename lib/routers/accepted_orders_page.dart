@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venuedashbusiness/routers/preparing_order_page.dart';
 import 'package:venuedashbusiness/utils/constants.dart';
 
 class AcceptedOrdersPage extends StatelessWidget {
@@ -76,7 +77,7 @@ class AcceptedOrdersPage extends StatelessWidget {
                               ),
                               child: InkWell(
                                 borderRadius: const BorderRadius.all(Radius.circular(16)),
-                                onTap: () => Get.back(), //to(() => const OrderDeliveryPage()),
+                                onTap: () => Get.to(() => const PreparingOrderPage()), //to(() => const OrderDeliveryPage()),
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: Column(

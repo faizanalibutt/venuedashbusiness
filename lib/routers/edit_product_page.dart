@@ -3,18 +3,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:venuedashbusiness/utils/constants.dart';
+import 'package:venuedashbusiness/widgets/custom_action_dialog.dart';
+import 'package:venuedashbusiness/widgets/custom_alert_confirmation_dialog.dart';
+import 'package:venuedashbusiness/widgets/custom_alert_dialog.dart';
 import 'package:venuedashbusiness/widgets/outlined_border_button_long.dart';
 import 'package:venuedashbusiness/widgets/rounded_button_long.dart';
 import 'package:venuedashbusiness/widgets/rounded_input_field.dart';
 
-class AddProductPage extends StatefulWidget {
-  const AddProductPage({Key? key}) : super(key: key);
+class EditProductPage extends StatefulWidget {
+  const EditProductPage({Key? key}) : super(key: key);
 
   @override
-  State<AddProductPage> createState() => _AddProductPageState();
+  State<EditProductPage> createState() => _EditProductPageState();
 }
 
-class _AddProductPageState extends State<AddProductPage> {
+class _EditProductPageState extends State<EditProductPage> {
   String? dropdownValue;
   var productCategoryList = ['Bakes', 'Vegetables', 'Dairy', 'Beverages'];
   bool isChecked = false;
@@ -28,7 +31,7 @@ class _AddProductPageState extends State<AddProductPage> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: Text("Add a Product",
+        title: Text("Edit Product",
             style: GoogleFonts.lato(
                 textStyle: const TextStyle(
               color: kBlackHeadingColor,
@@ -43,6 +46,44 @@ class _AddProductPageState extends State<AddProductPage> {
         ),
         leadingWidth: 80,
         shadowColor: Colors.transparent,
+        actions: [
+          InkWell(
+            onTap: () {
+              // delete dialog then success dialog then back
+              Get.dialog(
+                  CustomActionDialog(
+                    title: "Delete Product?",
+                    titleBtnYes: "Delete",
+                    titleBtnNo: "No",
+                    icon: "assets/graphics/ic_delete_green_icon.png",
+                    iconNve: "assets/graphics/ic_cross_green_icon.png",
+                    iconVe: "assets/graphics/ic_delete_icon_white.png",
+                    description: "Are you sure you want to delete this Product?",
+                    onYesPressed: () {
+                      Get.back();
+                      Get.dialog(
+                          CustomAlertConfirmationDialog(
+                            dialogHeight: 240,
+                            titleText: "Sucess!",
+                            descText: "Product deleted successfully.",
+                            buttonText: "Okay",
+                            onConfirmPressed: () => Get.back(),
+                            isSvg: true,
+                          ),
+                          barrierDismissible: false);
+                    },
+                    onNoPressed: () {
+                      Get.back();
+                    },
+                  ),
+                  barrierDismissible: false);
+            },
+            child: Image.asset(
+              "assets/graphics/ic_delete_icon_green.png",
+            ),
+          ),
+          const SizedBox(width: 10),
+        ],
       ),
       body: Padding(
         child: SingleChildScrollView(
@@ -127,7 +168,7 @@ class _AddProductPageState extends State<AddProductPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 20.0, top: 3.0),
+                padding: const EdgeInsets.only(bottom: 5.0, top: 3.0),
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   width: size.width * .85,
@@ -167,6 +208,13 @@ class _AddProductPageState extends State<AddProductPage> {
                   ),
                 ),
               ),
+              Text(
+                "Changing category will move this product to that category.",
+                style: GoogleFonts.lato(
+                    textStyle: const TextStyle(color: kPrimaryColor, fontSize: 10, overflow: TextOverflow.ellipsis, fontStyle: FontStyle.italic)),
+                textAlign: TextAlign.left,
+              ),
+              const SizedBox(height: 20.0),
               Row(
                 children: [
                   InkWell(
@@ -188,9 +236,7 @@ class _AddProductPageState extends State<AddProductPage> {
                   const Text("Add to Popular Items", style: TextStyle(color: kBlackSubHeadingColor, fontSize: 12))
                 ],
               ),
-              const SizedBox(
-                height: 30.0,
-              ),
+              const SizedBox(height: 30.0),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 OutlinedBorderButtonLong(
                   text: "Cancel",

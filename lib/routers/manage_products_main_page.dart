@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venuedashbusiness/routers/edit_product_page.dart';
 import 'package:venuedashbusiness/routers/product_categories_page.dart';
 import 'package:venuedashbusiness/utils/constants.dart';
 
@@ -225,7 +226,11 @@ class _ManageProductsMainPageState extends State<ManageProductsMainPage> {
                                     ),
                                   ),
                                   Flexible(
-                                    child: Align(alignment: Alignment.centerRight, child: Image.asset("assets/graphics/ic_edit_icon.png")),
+                                    child: Align(
+                                        alignment: Alignment.centerRight,
+                                        child: InkWell(
+                                            onTap: () => Get.to(() => const EditProductPage()),
+                                            child: Image.asset("assets/graphics/ic_edit_icon.png"))),
                                   )
                                 ],
                               ),

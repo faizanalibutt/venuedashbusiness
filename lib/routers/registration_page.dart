@@ -356,13 +356,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                         });
                                       },
                                       child: Container(
+                                          width: 40,
                                           padding: const EdgeInsets.only(left: 30.0),
                                           alignment: Alignment.centerLeft,
                                           decoration: const BoxDecoration(shape: BoxShape.circle),
                                           child: isChecked
                                               ? SvgPicture.asset("assets/graphics/images/condition_img_check.svg")
                                               : SvgPicture.asset("assets/graphics/images/condition_img_not_check.svg"))),
-                                  const SizedBox(width: 5.0),
                                   InkWell(
                                     onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const PrivacyPolicyPage())),
                                     child: const Text("Accept terms & conditions", style: TextStyle(color: Colors.white, fontSize: 12)),

@@ -3,8 +3,11 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:venuedashbusiness/controller/text_controller.dart';
 import 'package:venuedashbusiness/routers/accepted_orders_page.dart';
+import 'package:venuedashbusiness/routers/order_request_page.dart';
+import 'package:venuedashbusiness/routers/preparing_order_page.dart';
 import 'package:venuedashbusiness/utils/constants.dart';
 import 'package:venuedashbusiness/widgets/custom_alert_confirmation_dialog.dart';
+import 'package:venuedashbusiness/widgets/custom_order_action_dialog.dart';
 import 'package:venuedashbusiness/widgets/outlined_border_button_long.dart';
 import 'package:venuedashbusiness/widgets/rounded_button_long.dart';
 
@@ -197,7 +200,7 @@ class _HomePageState extends State<HomePage> {
                                       Expanded(
                                         child: OutlinedBorderButtonLong(
                                           text: "Reject",
-                                          press: () {},
+                                          press: () => Get.to(() => const OrderRequestPage()),
                                           textColor: kPrimaryColor,
                                           borderColor: kPrimaryColor,
                                           imgName: "assets/graphics/ic_cancel_icon.png",
@@ -209,13 +212,16 @@ class _HomePageState extends State<HomePage> {
                                           buttonWidth: 1,
                                           text: "Accept",
                                           press: () => {
-                                            Get.dialog(CustomAlertConfirmationDialog(
-                                                isSvg: false,
-                                                icon: "assets/graphics/ic_alert_green_icon.png",
-                                                dialogHeight: 240,
-                                                titleText: "Limited Orders",
-                                                descText: "You can only accept 5 orders at a time.",
-                                                onConfirmPressed: () => Get.back()))
+                                            Get.dialog(
+                                                CustomOrderActionDialog(
+                                                  title: "Order Preparing Time",
+                                                  description: "Approximately, how much time will this order to prepared? Please select a time slot.",
+                                                  onYesPressed: () => {Get.back(), Get.to(() => const PreparingOrderPage())},
+                                                  onNoPressed: () => Get.to(() => const OrderRequestPage()),
+                                                  titleBtnYes: "Done",
+                                                  titleBtnNo: "Cancel",
+                                                ),
+                                                barrierDismissible: false)
                                           },
                                           textColor: Colors.white,
                                           imgName: "assets/graphics/ic_okay_icon.png",

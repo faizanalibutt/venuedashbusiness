@@ -8,7 +8,7 @@ import 'package:venuedashbusiness/utils/dimensions.dart';
 import 'package:venuedashbusiness/widgets/outlined_border_button_long.dart';
 import 'package:venuedashbusiness/widgets/rounded_button_long.dart';
 
-class CustomActionDialog extends StatelessWidget {
+class CustomOrderActionDialog extends StatefulWidget {
   final String iconVe, iconNve, icon;
   final String? title;
   final String description;
@@ -18,7 +18,7 @@ class CustomActionDialog extends StatelessWidget {
   final Function? onNoPressed;
   final bool isSvg;
 
-  const CustomActionDialog({
+  const CustomOrderActionDialog({
     Key? key,
     this.icon = "assets/graphics/images/forget_circle_img.svg",
     this.iconVe = "assets/graphics/ic_okay_icon.png",
@@ -33,18 +33,23 @@ class CustomActionDialog extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<CustomOrderActionDialog> createState() => _CustomOrderActionDialogState();
+}
+
+class _CustomOrderActionDialogState extends State<CustomOrderActionDialog> {
+  var color = kPrimaryColor;
+  @override
   Widget build(BuildContext context) {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
         padding: const EdgeInsets.all(Dimensions.PADDING_SIZE_LARGE),
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          title != null
+          widget.title != null
               ? Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: Dimensions.PADDING_SIZE_LARGE),
+                  padding: const EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_LARGE),
                   child: Text(
-                    title!,
+                    widget.title!,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.lato(
                         textStyle: const TextStyle(
@@ -55,42 +60,77 @@ class CustomActionDialog extends StatelessWidget {
                   ),
                 )
               : const SizedBox(),
-          Padding(
-            padding: const EdgeInsets.all(Dimensions.PADDING_SIZE_LARGE),
-            child: isSvg ? SvgPicture.asset(icon) : Image.asset(icon),
-          ),
+          const SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
           AutoSizeText(
-            description,
-            style: GoogleFonts.lato(
-                textStyle:
-                    const TextStyle(color: kBlackDescColor, fontSize: 12)),
+            widget.description,
+            style: GoogleFonts.lato(textStyle: const TextStyle(color: kBlackDescColor, fontSize: 12)),
             minFontSize: 8,
             maxLines: 3,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
+          Material(
+            child: SizedBox(
+              height: 150,
+              child: MediaQuery.removePadding(
+                context: context,
+                removeTop: true,
+                child: GridView.builder(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      childAspectRatio: 2.5,
+                      mainAxisSpacing: 7,
+                      crossAxisSpacing: 4,
+                    ),
+                    itemCount: 12,
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(width: 1, color: color),
+                          borderRadius: const BorderRadius.all(Radius.circular(16)),
+                        ),
+                        alignment: Alignment.center,
+                        child: InkWell(
+                          onTap: () => {
+                            setState(() {
+                              color = kBlackColor30;
+                            }),
+                          },
+                          child: Text(
+                            "30 minutes",
+                            style: GoogleFonts.lato(textStyle: const TextStyle(color: kPrimaryColor, fontSize: 12)),
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
           Row(children: [
             Expanded(
               child: OutlinedBorderButtonLong(
-                text: titleBtnNo,
+                text: widget.titleBtnNo,
                 press: () {
                   Get.back();
-                  onNoPressed;
+                  widget.onNoPressed;
                 },
                 textColor: kPrimaryColor,
                 borderColor: kPrimaryColor,
-                imgName: iconNve,
+                imgName: widget.iconNve,
               ),
             ),
             const SizedBox(width: 10),
             Expanded(
               child: RoundedButtonLong(
                 buttonWidth: 1,
-                text: titleBtnYes,
-                press: () => onYesPressed(),
+                text: widget.titleBtnYes,
+                press: () => widget.onYesPressed(),
                 textColor: Colors.white,
-                imgName: iconVe,
+                imgName: widget.iconVe,
                 onPrimaryColor: Colors.white54,
               ),
             ),

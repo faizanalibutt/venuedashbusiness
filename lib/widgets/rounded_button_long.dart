@@ -12,6 +12,7 @@ class RoundedButtonLong extends StatelessWidget {
   final bool isSVG;
   final Color onPrimaryColor;
   final double buttonWidth;
+  final double borderRadius;
 
   const RoundedButtonLong({
     Key? key,
@@ -23,6 +24,7 @@ class RoundedButtonLong extends StatelessWidget {
     this.isSVG = false,
     this.onPrimaryColor = kPrimaryColor,
     this.buttonWidth = .85,
+    this.borderRadius = 14.0,
   }) : super(key: key);
 
   @override
@@ -39,7 +41,7 @@ class RoundedButtonLong extends StatelessWidget {
         )
       ]),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(borderRadius),
         child: newElevatedButton(),
       ),
     );

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,6 +12,7 @@ class OutlinedBorderButtonLong extends StatelessWidget {
   final String imgName;
   final double buttonWidth;
   final Color borderColor;
+  final double borderRadius;
   const OutlinedBorderButtonLong({
     Key? key,
     required this.text,
@@ -19,6 +22,7 @@ class OutlinedBorderButtonLong extends StatelessWidget {
     required this.imgName,
     this.buttonWidth = .85,
     this.borderColor = Colors.white,
+    this.borderRadius = 14.0,
   }) : super(key: key);
 
   @override
@@ -58,7 +62,7 @@ class OutlinedBorderButtonLong extends StatelessWidget {
       onPressed: press,
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14.0),
+          borderRadius: BorderRadius.circular(borderRadius),
           side: BorderSide(color: borderColor),
         ),
         onPrimary: borderColor,
