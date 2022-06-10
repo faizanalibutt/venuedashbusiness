@@ -188,9 +188,7 @@ class _AddProductPageState extends State<AddProductPage> {
                   const Text("Add to Popular Items", style: TextStyle(color: kBlackSubHeadingColor, fontSize: 12))
                 ],
               ),
-              const SizedBox(
-                height: 30.0,
-              ),
+              const SizedBox(height: 30.0),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 OutlinedBorderButtonLong(
                   text: "Cancel",

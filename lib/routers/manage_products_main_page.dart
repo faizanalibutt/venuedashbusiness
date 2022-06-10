@@ -321,7 +321,11 @@ class _ManageProductsMainPageState extends State<ManageProductsMainPage> {
                                     ),
                                   ),
                                   Flexible(
-                                    child: Align(alignment: Alignment.centerRight, child: Image.asset("assets/graphics/ic_edit_icon.png")),
+                                    child: Align(
+                                        alignment: Alignment.centerRight,
+                                        child: InkWell(
+                                            onTap: () => Get.to(() => const EditProductPage()),
+                                            child: Image.asset("assets/graphics/ic_edit_icon.png"))),
                                   )
                                 ],
                               ),
@@ -412,7 +416,11 @@ class _ManageProductsMainPageState extends State<ManageProductsMainPage> {
                                     ),
                                   ),
                                   Flexible(
-                                    child: Align(alignment: Alignment.centerRight, child: Image.asset("assets/graphics/ic_edit_icon.png")),
+                                    child: Align(
+                                        alignment: Alignment.centerRight,
+                                        child: InkWell(
+                                            onTap: () => Get.to(() => const EditProductPage()),
+                                            child: Image.asset("assets/graphics/ic_edit_icon.png"))),
                                   )
                                 ],
                               ),
