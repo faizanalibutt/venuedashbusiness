@@ -34,13 +34,19 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: Text("Edit Profile",
-            style: GoogleFonts.lato(
-                textStyle: const TextStyle(
-              color: kBlackHeadingColor,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ))),
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Edit Profile",
+                style: GoogleFonts.lato(
+                    textStyle: const TextStyle(
+                  color: kBlackHeadingColor,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ))),
+            Text("", style: GoogleFonts.lato(textStyle: const TextStyle(color: kBlackSubHeadingColor, fontSize: 12)))
+          ],
+        ),
         leading: InkWell(
           onTap: () => Get.back(),
           child: Image.asset("assets/graphics/ic_back_button.png"),

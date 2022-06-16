@@ -47,5 +47,7 @@
 	<string>Allow Location Permission</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Please allow location to test this app!</string>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 </dict>
 </plist>

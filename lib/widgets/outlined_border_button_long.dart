@@ -51,7 +51,6 @@ class OutlinedBorderButtonLong extends StatelessWidget {
                 textStyle: TextStyle(
               color: textColor,
               fontSize: 12,
-              fontWeight: FontWeight.bold,
             )),
             minFontSize: 8,
           )
