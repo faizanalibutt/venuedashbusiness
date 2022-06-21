@@ -39,79 +39,6 @@ class OrderHistoryDetailPage extends StatelessWidget {
             Container(
               width: size.width * .9,
               color: Colors.white,
-              child: Text("Order Status",
-                  style: GoogleFonts.lato(
-                      textStyle: const TextStyle(
-                    color: kBlackHeadingColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ))),
-            ),
-            const SizedBox(height: 10),
-            Ink(
-              width: size.width * .9,
-              decoration: const BoxDecoration(
-                color: kLoationFiedlBgColor,
-                borderRadius: BorderRadius.all(Radius.circular(16)),
-              ),
-              child: InkWell(
-                borderRadius: const BorderRadius.all(Radius.circular(16)),
-                child: SizedBox(
-                  height: 50,
-                  child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Text("Completed",
-                        style: GoogleFonts.lato(
-                            textStyle: const TextStyle(
-                                color: kBlackHeadingColor, fontSize: 15, fontWeight: FontWeight.normal, overflow: TextOverflow.ellipsis))),
-                  ]),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            Container(
-              width: size.width * .9,
-              color: Colors.white,
-              child: Text("Payment Method",
-                  style: GoogleFonts.lato(
-                      textStyle: const TextStyle(
-                    color: kBlackHeadingColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ))),
-            ),
-            const SizedBox(height: 10),
-            Ink(
-              width: size.width * .9,
-              decoration: const BoxDecoration(
-                color: kLoationFiedlBgColor,
-                borderRadius: BorderRadius.all(Radius.circular(16)),
-              ),
-              child: InkWell(
-                borderRadius: const BorderRadius.all(Radius.circular(16)),
-                child: SizedBox(
-                  height: 50,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: SvgPicture.asset("assets/graphics/images/order_payment_method_icon.svg"),
-                      ),
-                      Text("Cash on Delivery",
-                          style: GoogleFonts.lato(
-                              textStyle: const TextStyle(
-                                  color: kBlackHeadingColor, fontSize: 15, fontWeight: FontWeight.normal, overflow: TextOverflow.ellipsis))),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            Container(
-              width: size.width * .9,
-              color: Colors.white,
               child: Text("Order Details",
                   style: GoogleFonts.lato(
                       textStyle: const TextStyle(
@@ -282,6 +209,65 @@ class OrderHistoryDetailPage extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Container(
+              width: size.width * .95,
+              color: Colors.white,
+              child: Text("Pick Up Driver",
+                  style: GoogleFonts.lato(
+                      textStyle: const TextStyle(
+                    color: kBlackHeadingColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ))),
+            ),
+            const SizedBox(height: 10),
+            Ink(
+              decoration: const BoxDecoration(
+                color: kLoationFiedlBgColor,
+                borderRadius: BorderRadius.all(Radius.circular(16)),
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 6,
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          "assets/graphics/img_business_user_comment.png",
+                          width: size.width * .15,
+                        ),
+                        Flexible(
+                          child: Text("John Doe",
+                              style: GoogleFonts.lato(
+                                  textStyle: const TextStyle(
+                                      color: kBlackHeadingColor, fontSize: 15, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis))),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 4,
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Image.asset("assets/graphics/ic_distacnce_green_icon.png"),
+                          const SizedBox(width: 5),
+                          Text(
+                            "17.2 km away.",
+                            style: GoogleFonts.lato(
+                              textStyle: const TextStyle(color: kBlackSubHeadingColor, fontSize: 10, overflow: TextOverflow.ellipsis),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 20),
