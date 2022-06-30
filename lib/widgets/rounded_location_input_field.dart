@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:venuedashbusiness/widgets/text_field_location_container.dart';
 import '../utils/constants.dart';
 
@@ -44,7 +45,7 @@ class RoundedLocationInputField extends StatelessWidget {
           cursorColor: cursorColor,
           keyboardType: textInputType,
           autofocus: focus,
-          style: TextStyle(color: textColor),
+          style: GoogleFonts.lato(textStyle: TextStyle(color: textColor)),
           cursorWidth: 1,
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.only(left: 16, right: 0),
@@ -56,7 +57,7 @@ class RoundedLocationInputField extends StatelessWidget {
                 )),
             fillColor: kLoationFiedlBgColor,
             hintText: hintText,
-            hintStyle: TextStyle(color: hintTextColor),
+            hintStyle: GoogleFonts.lato(textStyle: TextStyle(color: hintTextColor)),
             filled: true,
             // enabledBorder: UnderlineInputBorder(
             //   borderSide: const BorderSide(color: kLoationFiedlBgColor),

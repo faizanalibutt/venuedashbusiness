@@ -23,24 +23,22 @@ class WelcomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: size.height * .04),
-            Image.asset("assets/graphics/welcome_logo.png",
-                height: size.height * .15),
+            SizedBox(height: size.height * .06),
+            Image.asset("assets/graphics/img_venue_dash_icon.png", height: size.height * .13),
             SizedBox(height: size.height * .01),
             SizedBox(
-                height: size.height * .05,
-                child: Text("Business App",
-                    style: GoogleFonts.lato(
-                        textStyle: const TextStyle(
-                      color: kPrimaryColor,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    )))),
+              height: size.height * .05,
+              child: Text("Business App",
+                  style: GoogleFonts.lato(
+                      textStyle: const TextStyle(
+                    color: kPrimaryColor,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ))),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: SvgPicture.asset(
-                  "assets/graphics/images/welcome_illustration.svg",
-                  height: size.height * .3),
+              child: SvgPicture.asset("assets/graphics/images/welcome_illustration.svg", height: size.height * .3),
             ),
             SizedBox(
               height: size.height * .05,
@@ -63,20 +61,19 @@ class WelcomePage extends StatelessWidget {
                         height: size.height * .05,
                         padding: const EdgeInsets.only(left: 30.0),
                         alignment: Alignment.topLeft,
-                        child: const FittedBox(
-                            child: Text(
-                          "Welcome!",
-                          style: TextStyle(color: Colors.white, fontSize: 30),
-                        ))),
+                        child: FittedBox(
+                            child: Text("Welcome!",
+                                style: GoogleFonts.lato(
+                                  textStyle: const TextStyle(color: Colors.white, fontSize: 30),
+                                )))),
                     Container(
                         height: size.height * .08,
                         padding: const EdgeInsets.only(left: 30.0, right: 30.0),
                         alignment: Alignment.topLeft,
-                        child: const AutoSizeText(
+                        child: AutoSizeText(
                           "Mauris fermentum justo eu finibus blandit. Maecenas"
                           "congue luctus dolor, blandit auctor lacus pellentesque a.",
-                          style:
-                              TextStyle(color: Color(0x88FFFFFF), fontSize: 16),
+                          style: GoogleFonts.lato(textStyle: const TextStyle(color: Color(0x88FFFFFF), fontSize: 14)),
                           minFontSize: 8,
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
@@ -90,16 +87,14 @@ class WelcomePage extends StatelessWidget {
                               OutlinedBorderButton(
                                   text: "Register",
                                   press: () => Get.to(() => RegistrationPage()),
-                                  imgName:
-                                      "assets/graphics/welcome_register_icon.png"),
+                                  imgName: "assets/graphics/ic_register_white_icon.png"),
                               const SizedBox(width: 10),
                               RoundedButton(
                                 text: "Login",
                                 press: () => Get.to(() => const LoginPage()),
                                 color: Colors.white,
                                 textColor: kPrimaryColor,
-                                imgName:
-                                    "assets/graphics/welcome_login_icon.png",
+                                imgName: "assets/graphics/ic_logo_green_icon.png",
                               ),
                             ],
                           ),

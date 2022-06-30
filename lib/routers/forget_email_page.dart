@@ -111,7 +111,7 @@ class ForgetEmailPage extends StatelessWidget {
                       press: () async {
                         Get.to(() => const VerifyNoPage());
                       },
-                      imgName: 'assets/graphics/ic_forget_reset_img.png',
+                      imgName: 'assets/graphics/ic_reset_pwd_white_icon.png',
                       color: kPrimaryColor,
                       textColor: Colors.white,
                       onPrimaryColor: Colors.white54,

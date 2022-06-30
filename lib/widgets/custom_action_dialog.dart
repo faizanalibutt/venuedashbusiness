@@ -41,8 +41,7 @@ class CustomActionDialog extends StatelessWidget {
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           title != null
               ? Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: Dimensions.PADDING_SIZE_LARGE),
+                  padding: const EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_LARGE),
                   child: Text(
                     title!,
                     textAlign: TextAlign.center,
@@ -61,9 +60,7 @@ class CustomActionDialog extends StatelessWidget {
           ),
           AutoSizeText(
             description,
-            style: GoogleFonts.lato(
-                textStyle:
-                    const TextStyle(color: kBlackDescColor, fontSize: 12)),
+            style: GoogleFonts.lato(textStyle: const TextStyle(color: kBlackDescColor, fontSize: 12)),
             minFontSize: 8,
             maxLines: 3,
             textAlign: TextAlign.center,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:venuedashbusiness/utils/constants.dart';
 import 'package:venuedashbusiness/widgets/text_field_container.dart';
 
@@ -35,7 +36,7 @@ class RoundedPasswordField extends StatelessWidget {
         onChanged: onChanged,
         cursorColor: cursorColor,
         textAlign: TextAlign.start,
-        style: TextStyle(color: textColor, height: 1.5),
+        style: GoogleFonts.lato(textStyle: TextStyle(color: textColor, height: 1.5)),
         decoration: InputDecoration(
             contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             border: InputBorder.none,
