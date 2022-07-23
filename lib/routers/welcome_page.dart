@@ -86,12 +86,12 @@ class WelcomePage extends StatelessWidget {
                             children: [
                               OutlinedBorderButton(
                                   text: "Register",
-                                  press: () => Get.to(() => RegistrationPage()),
+                                  press: () => Get.off(RegistrationPage()),
                                   imgName: "assets/graphics/ic_register_white_icon.png"),
                               const SizedBox(width: 10),
                               RoundedButton(
                                 text: "Login",
-                                press: () => Get.to(() => const LoginPage()),
+                                press: () => Get.off(const LoginPage()),
                                 color: Colors.white,
                                 textColor: kPrimaryColor,
                                 imgName: "assets/graphics/ic_logo_green_icon.png",

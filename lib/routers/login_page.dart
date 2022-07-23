@@ -132,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   RoundedButtonLong(
                     text: "Login",
-                    press: () => Get.to(() => HomePage()),
+                    press: () => Get.off(() => HomePage()),
                     imgName: 'assets/graphics/ic_logo_green_icon.png',
                     color: Colors.white,
                     textColor: kPrimaryColor,
@@ -155,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 10),
                   OutlinedBorderButtonLong(
                       text: "Register",
-                      press: () => Get.to(() => RegistrationPage()),
+                      press: () => Get.off(() => RegistrationPage()),
                       color: Colors.white,
                       textColor: Colors.white,
                       imgName: 'assets/graphics/ic_register_white_icon.png'),

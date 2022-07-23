@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:venuedashbusiness/controller/text_controller.dart';
 import 'package:venuedashbusiness/routers/home_page.dart';
 import 'package:venuedashbusiness/routers/location_edit_page.dart';
@@ -26,6 +27,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
   bool _isPwdVisible = true;
   bool _isPwdVisible2 = true;
   String? dropdownValue;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -320,7 +327,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   const SizedBox(height: 10),
                   RoundedButtonLong(
                     text: "Register",
-                    press: () => Get.to(() => HomePage()),
+                    press: () => {
+                      Get.off(() => HomePage()),
+                    },
                     imgName: 'assets/graphics/ic_register_green_icon.png',
                     color: Colors.white,
                     textColor: kPrimaryColor,
@@ -338,7 +347,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   const SizedBox(height: 10),
                   OutlinedBorderButtonLong(
                       text: "Login",
-                      press: () => Get.to(() => const LoginPage()),
+                      press: () => Get.off(() => const LoginPage()),
                       color: Colors.white,
                       textColor: Colors.white,
                       imgName: 'assets/graphics/ic_logo_white_icon.png'),

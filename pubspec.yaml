@@ -43,6 +43,9 @@ dependencies:
   google_fonts: ^2.2.0
   flutter_rating_bar: ^4.0.0
   mask_text_input_formatter: ^2.1.0
+  shared_preferences: ^2.0.15
+  intl: ^0.17.0
+  connectivity: ^3.0.6
 
 dev_dependencies:
   flutter_test:
