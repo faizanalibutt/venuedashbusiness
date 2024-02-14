@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:venuedashbusiness/helper/route_helper.dart';
+import 'package:venuedashbusiness/routers/login_page.dart';
 import 'package:venuedashbusiness/utils/dimensions.dart';
 import 'package:venuedashbusiness/utils/images.dart';
 
@@ -13,34 +16,33 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  
   final GlobalKey<ScaffoldState> _globalKey = GlobalKey();
   late StreamSubscription<ConnectivityResult> _onConnectivityChanged;
 
   @override
   void initState() {
     super.initState();
-
-    bool _firstTime = true;
-    _onConnectivityChanged = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
-      if (!_firstTime) {
-        bool isNotConnected = result != ConnectivityResult.wifi && result != ConnectivityResult.mobile;
-        isNotConnected ? const SizedBox() : ScaffoldMessenger.of(context).hideCurrentSnackBar();
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          backgroundColor: isNotConnected ? Colors.red : Colors.green,
-          duration: Duration(seconds: isNotConnected ? 6000 : 3),
-          content: Text(
-            isNotConnected ? 'no_connection' : 'connected',
-            textAlign: TextAlign.center,
-          ),
-        ));
-        if (!isNotConnected) {
-          _route();
-        }
+    _onConnectivityChanged = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) {
+      bool isConnected = result == ConnectivityResult.wifi ||
+          result == ConnectivityResult.mobile;
+      isConnected
+          ? const SizedBox()
+          : ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: isConnected ? Colors.green : Colors.red,
+        duration: Duration(seconds: isConnected ? 3 : 10),
+        content: Text(
+          isConnected ? 'Connected' : 'No Connection Available',
+          textAlign: TextAlign.center,
+        ),
+      ));
+      if (isConnected) {
+        _route();
       }
-      _firstTime = false;
     });
-
-    _route();
   }
 
   @override
@@ -50,7 +52,11 @@ class _SplashPageState extends State<SplashPage> {
     _onConnectivityChanged.cancel();
   }
 
-  void _route() {}
+  void _route() {
+    Future.delayed(const Duration(seconds: 2), () async {
+      Get.offNamed(RouteHelper.signIn);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
